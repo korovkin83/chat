@@ -55,7 +55,11 @@ var pass = req.params["pass"];
 
 
 	} else {
-		res.send("Неверный логин или пароль");
+		var event = {
+				status: "0",
+			};
+			var str = JSON.stringify(event);
+		res.send(str);
 	}
 });
 });
