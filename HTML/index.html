@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ЧАТ | Главная</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+
+
+  </head>
+  <body>
+
+
+  <div align=center style="margin-top: 15%;">
+    <h1>Добро Пожаловать!</h1>
+    <a href="login" class="btn btn-primary my-2">Авторизация</a>
+    <a href="register" class="btn btn-secondary my-2">Регистрация</a>
+
+  </div>
+
+<script type="text/javascript">
+  login = localStorage.getItem('login');
+  if (login) {
+      window.location.replace('chat');
+  }
+</script>
+
+  </body>
+</html>

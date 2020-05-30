@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Регистрация</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+
+
+  </head>
+  <body>
+  <div align=center style="margin-top: 15%;">
+    <h1>Регистрация:</h1>
+    <div class="form-group col-md-6">
+      <label for="usr">Логин:</label>
+      <input type="text" class="form-control" id="reg_login">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="pwd">Пароль:</label>
+      <input type="text" class="form-control" id="reg_pass" >
+    </div>
+    <input type="button" onclick="reg(); return false;" value="Войти">
+    <a href="login">Авторизация</a>
+  </div>
+
+<script type="text/javascript">
+function reg() {
+  var login = document.getElementById('reg_login').value;
+  var pass = document.getElementById('reg_pass').value;
+ var url  = "/api/register/" + login + "/" + pass;
+  var x = new XMLHttpRequest();
+  x.open("GET", url, true);
+  x.onload = function (){
+    var out = JSON.parse(x.responseText);
+    if (out['status'] == "1") {
+        var login = out['login'];
+       localStorage.setItem('login', login);
+        window.location.replace('chat');
+    } else {
+        alert("Неверно введены данные!");
+    }
+
+  }
+  x.send(null);
+}
+
+
+</script>
